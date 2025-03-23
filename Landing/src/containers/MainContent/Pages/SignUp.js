@@ -37,20 +37,20 @@ class SignUp extends Component{
                             <div className="row justify-content-center">
                                 <div className="col-lg-4">
                                     <div className="text-center">
-                                        <h1 className="text-white">Steix</h1>
+                                        <h1 className="text-white">WeCowork</h1>
                                         <p className="text-white-50 text-center">Sign Up For a new Account</p>
                                     </div>
                                     <div className="bg-white p-4 mt-4 rounded">
                                         <form className="login-form" action="index_1">
                                             <div className="row">
                                                 <div className="col-lg-12 mt-4">
-                                                    <input type="text" className="form-control" placeholder="First Name" required="" />
+                                                    <input type="text" className="form-control" placeholder="First Name" required="true" />
                                                 </div>
                                                 <div className="col-lg-12 mt-4">
-                                                    <input type="email" className="form-control" placeholder="Email" required="" />
+                                                    <input type="email" className="form-control" placeholder="Email" required="true" />
                                                 </div>
                                                 <div className="col-lg-12 mt-4">
-                                                    <input type="password" className="form-control" placeholder="Password" required="" />
+                                                    <input type="password" className="form-control" placeholder="Password" required="true" />
                                                 </div>
                                                 <div  className="col-lg-12 mt-4">
                                                     <div id="my_icon" className="custom-control custom-checkbox">
@@ -65,7 +65,7 @@ class SignUp extends Component{
                                         </form>
                                     </div>
                                     <div className="text-center mt-3">
-                                        <p><small className="text-white mr-2">Don't have an account ?</small> <Link to="login" className="text-white font-weight-bold text-capitalize">sign in</Link></p>
+                                        <p><small className="text-white mr-2">Already have an account?</small> <Link to="login" className="text-white font-weight-bold text-capitalize">sign in</Link></p>
                                     </div>
                                 </div>
                             </div>

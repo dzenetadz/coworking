@@ -44,10 +44,10 @@ class Login extends Component{
                                                 <form className="login-form" action="index_1">
                                                     <div className="row">
                                                         <div className="col-lg-12 mt-4">
-                                                            <input type="email" className="form-control" placeholder="Email" required="" />
+                                                            <input type="email" className="form-control" placeholder="Email" required="true" />
                                                         </div>
                                                         <div className="col-lg-12 mt-4">
-                                                            <input type="password" className="form-control" placeholder="Password" required="" />
+                                                            <input type="password" className="form-control" placeholder="Password" required="true" />
                                                         </div>
                                                         <div className="col-lg-12 mt-4">
                                                             <div id="my_icon" className="custom-control custom-checkbox">

@@ -37,7 +37,7 @@ class Pricing extends Component {
                     </p>
                   </div>
                   <div className="mt-5">
-                    <Link to="#" className="btn btn-custom btn-rounded">Sign Up</Link>
+                    <Link to="signup" className="btn btn-custom btn-rounded">Sign Up</Link>
                   </div>
                 </div>
               </div>
@@ -56,7 +56,7 @@ class Pricing extends Component {
                     </p>
                   </div>
                   <div className="mt-5">
-                    <Link to="#" className="btn btn-custom btn-rounded">Sign Up</Link>
+                    <Link to="signup" className="btn btn-custom btn-rounded">Sign Up</Link>
                   </div>
                 </div>
               </div>
@@ -75,7 +75,7 @@ class Pricing extends Component {
                     </p>
                   </div>
                   <div className="mt-5">
-                    <Link to="#" className="btn btn-custom btn-rounded">Sign Up</Link>
+                    <Link to="signup" className="btn btn-custom btn-rounded">Sign Up</Link>
                   </div>
                 </div>
               </div>
