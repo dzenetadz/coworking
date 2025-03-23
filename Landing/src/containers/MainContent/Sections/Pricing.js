@@ -1,9 +1,48 @@
 import React, { Component } from 'react';
 import AUX from '../../../hoc/Aux_';
 import { Link } from 'react-router-dom';
+import EditButton from '../../../components/UI/EditButton'; 
 
 class Pricing extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      plans: [
+        {
+          id: 1,
+          price: '$50',
+          title: 'Student',
+          description:
+            'Affordable access for students with basic amenities and community networking.',
+        },
+        {
+          id: 2,
+          price: '$150',
+          title: 'Flex 10',
+          description:
+            'Enjoy 10 days of flexible coworking space access—ideal for short-term projects.',
+        },
+        {
+          id: 3,
+          price: '$300',
+          title: 'Professional',
+          description:
+            'Full access with premium amenities, dedicated workspaces, and exclusive networking events.',
+        },
+      ],
+    };
+  }
+
+  updatePlan = (updatedPlan) => {
+    this.setState((prevState) => ({
+      plans: prevState.plans.map((plan) =>
+        plan.id === updatedPlan.id ? updatedPlan : plan
+      ),
+    }));
+  };
+
   render() {
+    const { plans } = this.state;
     return (
       <AUX>
         <section className="section bg-light" id="pricing">
@@ -22,63 +61,34 @@ class Pricing extends Component {
               </div>
             </div>
             <div className="row mt-5">
-              {/* Student Plan */}
-              <div className="col-lg-4">
-                <div className="price-box p-5 bg-white text-center mt-4">
-                  <div className="plan-price">
-                    <h2>$50</h2>
-                  </div>
-                  <div className="plan-name mt-4">
-                    <h6>Student</h6>
-                  </div>
-                  <div className="plan-desc mt-4">
-                    <p className="mb-0 text-muted">
-                      Affordable access for students with basic amenities and community networking.
-                    </p>
-                  </div>
-                  <div className="mt-5">
-                    <Link to="signup" className="btn btn-custom btn-rounded">Sign Up</Link>
-                  </div>
-                </div>
-              </div>
-              {/* Flex Plan */}
-              <div className="col-lg-4">
-                <div className="price-box p-5 bg-white text-center mt-1">
-                  <div className="plan-price">
-                    <h2>$150</h2>
-                  </div>
-                  <div className="plan-name mt-4">
-                    <h6>Flex 10</h6>
-                  </div>
-                  <div className="plan-desc mt-4">
-                    <p className="mb-0 text-muted">
-                      Enjoy 10 days of flexible coworking space access—ideal for short-term projects.
-                    </p>
-                  </div>
-                  <div className="mt-5">
-                    <Link to="signup" className="btn btn-custom btn-rounded">Sign Up</Link>
+              {plans.map((plan) => (
+                <div key={plan.id} className="col-lg-4">
+                  <div className="price-box p-5 bg-white text-center mt-4">
+                    {/* <EditButton
+                      title={plan.title}
+                      description={plan.description}
+                      price={plan.price}
+                      onSave={(data) =>
+                        this.updatePlan({ ...plan, ...data })
+                      }
+                    /> */}
+                    <div className="plan-price">
+                      <h2>{plan.price}</h2>
+                    </div>
+                    <div className="plan-name mt-4">
+                      <h6>{plan.title}</h6>
+                    </div>
+                    <div className="plan-desc mt-4">
+                      <p className="mb-0 text-muted">{plan.description}</p>
+                    </div>
+                    <div className="mt-5">
+                      <Link to="signup" className="btn btn-custom btn-rounded">
+                        Sign Up
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-              {/* Professional Plan */}
-              <div className="col-lg-4">
-                <div className="price-box p-5 bg-white text-center mt-4">
-                  <div className="plan-price">
-                    <h2>$300</h2>
-                  </div>
-                  <div className="plan-name mt-4">
-                    <h6>Professional</h6>
-                  </div>
-                  <div className="plan-desc mt-4">
-                    <p className="mb-0 text-muted">
-                      Full access with premium amenities, dedicated workspaces, and exclusive networking events.
-                    </p>
-                  </div>
-                  <div className="mt-5">
-                    <Link to="signup" className="btn btn-custom btn-rounded">Sign Up</Link>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
