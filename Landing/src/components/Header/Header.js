@@ -74,9 +74,9 @@ class Header extends Component{
                     <a href="#contact">Contact</a>
                 </li>
 
-                  <li className="has-submenu">
+                  {/* <li className="has-submenu">
                     <Link to="account">My Account</Link>
-                </li>
+                </li> */}
 
                 <li className="has-submenu mobile-block">
                     <Link to="login">Log in</Link>
