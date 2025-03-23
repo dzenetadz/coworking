@@ -13,6 +13,7 @@ import HomeTen from '../MainContent/Pages/HomeTen';
 import Login from '../MainContent/Pages/Login';
 import PasswordForget from '../MainContent/Pages/PasswordForget';
 import SignUp from '../MainContent/Pages/SignUp';
+import MyAccount from '../MainContent/Pages/MyAccount'; 
 
 class mainbuilder extends Component{
     render(){
@@ -34,6 +35,7 @@ class mainbuilder extends Component{
                     <Route path={`${process.env.PUBLIC_URL}/login`} component={Login} />
                     <Route path={`${process.env.PUBLIC_URL}/password_forget`} component={PasswordForget} />
                     <Route path={`${process.env.PUBLIC_URL}/signup`} component={SignUp} /> 
+                    <Route path={`${process.env.PUBLIC_URL}/account`} component={MyAccount} />
                    
                 </Switch>
         );

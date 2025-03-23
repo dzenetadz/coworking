@@ -29,7 +29,7 @@ class Header extends Component{
         <div className="container">
         <div>
             <Link to="index_1" className="logo">
-                Steix
+                WeCowork
             </Link>
         </div>
         <div className="menu-extras">
@@ -48,39 +48,6 @@ class Header extends Component{
             <ul className="navigation-menu ">
                 <li className="has-submenu active">
                     <Link to="#home">Home</Link>
-                    <span className="menu-arrow"></span>
-                    <ul className="submenu">
-                        <li>
-                            <Link to="index_1">Home Default</Link>
-                        </li>
-                        <li>
-                            <Link to="index_2">Home Text-Typed</Link>
-                        </li>
-                        <li>
-                            <Link to="index_3">Home Text-Rotate </Link>
-                        </li>
-                        <li>
-                            <Link to="index_4">Home Image</Link>
-                        </li>
-                        <li>
-                            <Link to="index_5">Home Video</Link>
-                        </li>
-                        <li>
-                            <Link to="index_6">Home Half-Screen</Link>
-                        </li>
-                        <li>
-                            <Link to="index_7">Home Slider</Link>
-                        </li>
-                        <li>
-                            <Link to="index_8">Home Animate</Link>
-                        </li>                                
-                        <li>
-                            <Link to="index_9">Home Lightbar</Link>
-                        </li>                                  
-                        <li>
-                            <Link to="index_10">Home Animation</Link>
-                        </li>
-                    </ul>
                 </li>
 
                 <li className="has-submenu ">
@@ -106,12 +73,17 @@ class Header extends Component{
                 <li className="has-submenu">
                     <a href="#contact">Contact</a>
                 </li>
+
+                  <li className="has-submenu">
+                    <Link to="account">My Account</Link>
+                </li>
+
                 <li className="has-submenu mobile-block">
                     <Link to="login">Log in</Link>
                 </li>
 
                 <li className="has-submenu mobile-block">
-                    <Link to="signup">Try It Free</Link>
+                    <Link to="signup">Sign Up</Link>
                 </li>
             </ul>
             <ul className="navigation-menu menu-right">
@@ -119,7 +91,7 @@ class Header extends Component{
                     <Link to="login">Log in</Link>
                 </li>
                 <li className="mobile-none">
-                    <Link to="signup">Try It Free</Link>
+                    <Link to="signup">Sign Up</Link>
                 </li>
             </ul>
         </div>

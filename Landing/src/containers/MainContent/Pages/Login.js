@@ -37,8 +37,8 @@ class Login extends Component{
                                     <div className="row justify-content-center mt-4">
                                         <div className="col-lg-4">
                                             <div className="text-center">
-                                                <h1 className="text-white">Steix</h1>
-                                                <p className="text-white-50 text-center">Sign in to continue to Steix.</p>
+                                                <h1 className="text-white">WeCowork</h1>
+                                                <p className="text-white-50 text-center">Sign in to continue to WeCowork.</p>
                                             </div>
                                             <div className="bg-white p-4 mt-4 rounded">
                                                 <form className="login-form" action="index_1">

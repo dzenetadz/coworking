@@ -27,10 +27,10 @@ class HomeOne extends Component {
                         <div className="row justify-content-center">
                             <div className="col-md-10 text-center text-white">
                                 <h1 className="mt-5 pt-5 home-title">
-                                    We help startups launch their awesome website
+                                Discover the Perfect Coworking Experience
                                 </h1>
                                 <p className="home-subtitle mx-auto pt-2">
-                                    It is a long established fact that a reader will be of a page when looking at its layout.
+                                Work, connect, and grow in spaces designed for productivity and community. Find the flexibility you need, all in one inspiring location.
                                 </p>
                                 <div className="mt-5">
                                     <Link to="#" className="btn btn-custom">

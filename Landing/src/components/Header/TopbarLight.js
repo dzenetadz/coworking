@@ -9,10 +9,7 @@ class TopbarLight extends Component{
             <AUX>
                <div className="topbar tagline-light"> 
                     <div className="container"> 
-                        <div className="float-left"> 
-                            <div className="phone-topbar text-dark">
-                                <p className="mb-0">Help +1 123 456 78 90</p> 
-                            </div>                  
+                        <div className="float-left">          
                         </div>
                         <div className="float-right">
                             <ul className="list-inline social pb-0 pt-2">

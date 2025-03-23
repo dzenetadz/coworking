@@ -29,7 +29,7 @@ class Contact extends Component{
                                         <div className="single-contact text-center text-white"> 
                                             <i className="mdi mdi-cellphone"></i>
                                             <h4>Phone</h4>
-                                            <p>000-111-222 333</p>
+                                            <p>033-676-675</p>
                                         </div>
                                     </div>
                                     <div className="col-lg-4">
@@ -60,13 +60,13 @@ class Contact extends Component{
                                                 <input type="text" id="name" className="form-control" placeholder="First name" /> 
                                             </div>
                                             <div className="col-lg-6 mt-3">
-                                                <input type="text" id="email" className="form-control" value={this.state.email} onChange={this.handleChangeEmail} id="exampleInputEmail1" placeholder="Enter email" />
+                                                <input type="text" id="email" className="form-control" value={this.state.email} onChange={this.handleChangeEmail} placeholder="Enter email" />
                                                 <span id="err">{this.state.email_err}</span>
                                             </div>
                                         </div>
                                         <div className="row">
                                             <div className="col-lg-12 mt-3">
-                                                <input type="text" id="subject" value={this.state.name} onChange={this.handleChangeName} className="form-control" id="subject" placeholder="Your Subject.." />
+                                                <input type="text" id="subject" value={this.state.name} onChange={this.handleChangeName} className="form-control" placeholder="Your Subject.." />
                                                 <span id="err">{this.state.name_err}</span>
                                             </div>
                                         </div>
