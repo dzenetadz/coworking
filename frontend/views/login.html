@@ -1,0 +1,40 @@
+<!-- login.html -->
+<section id="login" class="login section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Login</h2>
+    <p>Access Your Account</p>
+  </div><!-- End Section Title -->
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <!-- Using the .contact container to reuse existing button and form styling -->
+        <div class="contact">
+          <form action="forms/login.php" method="post" class="php-email-form">
+            <div class="row gy-4">
+              <div class="col-md-12">
+                <input type="text" name="username" class="form-control" placeholder="Username" required="true">
+              </div>
+              <div class="col-md-12">
+                <input type="password" name="password" class="form-control" placeholder="Password" required="true">
+              </div>
+              <div class="col-md-12 text-center">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your login was successful.</div>
+                <button type="submit">Login</button>
+              </div>
+            </div>
+          </form>
+          <!-- Updated link using a hash for SPA navigation -->
+          <p class="text-center" style="margin-top: 20px;">
+            Don't have an account? <a href="#register">Make a new one</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
