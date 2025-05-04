@@ -2,11 +2,11 @@
 // test.php
 
 // Include your DAO classes. Adjust the paths if necessary.
-require_once 'dao/UserDao.php';
-require_once 'dao/MessagesDao.php';
-require_once 'dao/PlansDao.php';
-require_once 'dao/ReservationsDao.php';
-require_once 'dao/ServicesDao.php';
+require_once 'rest/dao/UserDao.php';
+require_once 'rest/dao/MessagesDao.php';
+require_once 'rest/dao/PlansDao.php';
+require_once 'rest/dao/ReservationsDao.php';
+require_once 'rest/dao/ServicesDao.php';
 
 // Create DAO instances for each entity.
 $membersDao      = new UserDao();
