@@ -1,7 +1,7 @@
 <?php
 class Database {
-    private static $host = '127.0.0.1';
-    private static $port = '8889';
+    private static $host = 'localhost';
+    private static $port = '3306';
     private static $dbName = 'coworking';
     private static $username = 'root';
     private static $password = 'root';
