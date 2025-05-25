@@ -19,6 +19,10 @@
             <h3>Flexible Workspace</h3>
           </a>
           <p>Enjoy versatile workspaces designed to adapt to your workflow—from open desks to private nooks.</p>
+          <!-- edit button, hidden by default -->
+          <button class="btn btn-sm btn-warning edit-btn" style="display:none; position:absolute; top:10px; right:10px;">
+            Edit
+          </button>
         </div>
       </div><!-- End Service Item -->
 
@@ -32,6 +36,9 @@
             <h3>Meeting Rooms</h3>
           </a>
           <p>Access fully-equipped meeting rooms for presentations, brainstorming, and client engagements.</p>
+          <button class="btn btn-sm btn-warning edit-btn" style="display:none; position:absolute; top:10px; right:10px;">
+            Edit
+          </button>
         </div>
       </div><!-- End Service Item -->
 
@@ -45,6 +52,9 @@
             <h3>Community Events</h3>
           </a>
           <p>Participate in exclusive events and networking sessions to connect with like-minded professionals.</p>
+          <button class="btn btn-sm btn-warning edit-btn" style="display:none; position:absolute; top:10px; right:10px;">
+            Edit
+          </button>
         </div>
       </div><!-- End Service Item -->
 
@@ -58,6 +68,9 @@
             <h3>Business Support</h3>
           </a>
           <p>Leverage professional support services including printing, mail handling, and more.</p>
+          <button class="btn btn-sm btn-warning edit-btn" style="display:none; position:absolute; top:10px; right:10px;">
+            Edit
+          </button>
         </div>
       </div><!-- End Service Item -->
 
@@ -71,6 +84,9 @@
             <h3>Virtual Office</h3>
           </a>
           <p>Secure a prestigious business address and virtual services to boost your brand presence.</p>
+          <button class="btn btn-sm btn-warning edit-btn" style="display:none; position:absolute; top:10px; right:10px;">
+            Edit
+          </button>
         </div>
       </div><!-- End Service Item -->
 
@@ -84,9 +100,24 @@
             <h3>Workshops &amp; Training</h3>
           </a>
           <p>Attend workshops and training sessions designed to boost your skills and business growth.</p>
+          <button class="btn btn-sm btn-warning edit-btn" style="display:none; position:absolute; top:10px; right:10px;">
+            Edit
+          </button>
         </div>
       </div><!-- End Service Item -->
     </div>
   </div>
 
+  <!-- show edit buttons if admin -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const token = localStorage.getItem('user_token');
+      const parsed = token ? Utils.parseJwt(token) : null;
+      if (parsed && parsed.user && parseInt(parsed.user.is_admin, 10) === 1) {
+        document.querySelectorAll('.service-item .edit-btn').forEach(btn => {
+          btn.style.display = 'block';
+        });
+      }
+    });
+  </script>
 </section>
