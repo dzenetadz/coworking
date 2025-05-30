@@ -1,5 +1,5 @@
 <?php
-+require_once __DIR__ . '/../dao/BaseDao.php';
+require_once __DIR__ . '/../dao/BaseDao.php';
 
 class BaseService {
     protected $dao;
@@ -10,6 +10,11 @@ class BaseService {
 
     public function getAll() {
         return $this->dao->getAll();
+    }
+
+    public function add($entity)
+    {
+        return $this->dao->add($entity);
     }
 
     public function getById($id) {

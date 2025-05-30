@@ -31,9 +31,9 @@ CREATE TABLE `Members` (
   `id` int NOT NULL,
   `customer_name` varchar(50) NOT NULL,
   `customer_email` varchar(100) DEFAULT NULL,
-  `customer_password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `customer_password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `Members`
@@ -62,7 +62,7 @@ CREATE TABLE `Messages` (
   `message_content` varchar(300) NOT NULL,
   `customer_id` int NOT NULL,
   `submitted_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `Messages`
@@ -84,7 +84,7 @@ CREATE TABLE `Plans` (
   `plan_price` decimal(10,2) NOT NULL,
   `plan_title` varchar(50) NOT NULL,
   `plan_description` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `Plans`
@@ -110,7 +110,7 @@ CREATE TABLE `Reservations` (
   `customer_id` int NOT NULL,
   `plan_id` int NOT NULL,
   `order_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `Reservations`
@@ -131,7 +131,7 @@ CREATE TABLE `Services` (
   `id` int NOT NULL,
   `service_title` varchar(50) NOT NULL,
   `service_desc` varchar(300) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `Services`
