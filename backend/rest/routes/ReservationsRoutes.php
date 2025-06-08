@@ -20,9 +20,15 @@ Flight::route('GET /reservations/member/@memberId', function($memberId){
 
 // POST create reservation
 Flight::route('POST /reservations', function(){
-    //    Flight::auth_middleware()->authorizeRoles([Roles::USER, Roles::ADMIN]);
     $data = Flight::request()->data->getData();
-    Flight::json( Flight::reservationService()->createReservation($data) );
+    // this will throw on validation errors, etc.
+    $newRes = Flight::reservationService()->createReservation($data);
+
+    // if your service returns the newly‐inserted row, great:
+    Flight::json([
+      "success" => true,
+      "reservation" => $newRes
+    ]);
 });
 
 // PUT replace reservation

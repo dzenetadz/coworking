@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../../data/roles.php';
 
 Flight::route('GET /plans', function(){
-    Flight::auth_middleware()->authorizeAdmin();
+    // Flight::auth_middleware()->authorizeAdmin();
     Flight::json( Flight::planService()->getAll() );
 });
 // GET single plan
@@ -33,7 +33,11 @@ Flight::route('PATCH /plans/@id', function($id){
 });
 
 // DELETE plan
-Flight::route('DELETE /plans/@id', function($id){
-//Flight::auth_middleware()->authorizeAdmin();
-    Flight::json( Flight::planService()->delete($id) );
+Flight::route('DELETE /plans/@id', function ($id) {
+    // Flight::auth_middleware()->authorizeAdmin();
+    Flight::planService()->delete($id);
+
+    // return the updated list of plans
+    $allPlans = Flight::planService()->getAll();
+    Flight::json($allPlans);
 });

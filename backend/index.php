@@ -55,7 +55,9 @@ Flight::register('messageService',      'MessagesService');
 Flight::route('/*', function() {
     if(
         strpos(Flight::request()->url, '/auth/login') === 0 ||
-        strpos(Flight::request()->url, '/auth/register') === 0
+        strpos(Flight::request()->url, '/auth/register') === 0 ||
+        strpos(Flight::request()->url, '/services') === 0  ||
+        strpos(Flight::request()->url, '/plans') === 0
     ) {
         return TRUE;
     } else {

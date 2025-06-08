@@ -12,10 +12,10 @@ class PlansService extends BaseService {
      * Business rule: every plan must have a non‐empty name and positive price
      */
     public function createPlan(array $data) {
-        if (empty($data['title'])) {
+        if (empty($data['plan_title'])) {
             throw new Exception('Plan name is required.');
         }
-        if (!isset($data['price']) || $data['price'] <= 0) {
+        if (!isset($data['plan_price']) || $data['plan_price'] <= 0) {
             throw new Exception('Plan price must be a positive number.');
         }
         return $this->create($data);
@@ -25,10 +25,10 @@ class PlansService extends BaseService {
      * Override update to enforce the same rules on PUT/PATCH:
      */
     public function update($id, array $data) {
-        if (array_key_exists('title', $data) && empty($data['title'])) {
+        if (array_key_exists('plan_title', $data) && empty($data['plan_title'])) {
             throw new Exception('Plan name cannot be empty.');
         }
-        if (array_key_exists('price', $data) && $data['price'] <= 0) {
+        if (array_key_exists('plan_price', $data) && $data['plan_price'] <= 0) {
             throw new Exception('Plan price must be a positive number.');
         }
         return parent::update($id, $data);

@@ -1,56 +1,95 @@
-var UserService = {
-  init: function() {
-    const token = localStorage.getItem("user_token");
-    if (token) {
-      // already logged in? go to home
-      window.location.replace("index.html");
+const UserService = {
+  /* ---------- LOGIN ---------- */
+  init() {
+    if (Utils.getJwtPayload()) {
+      return location.replace("#hero");
     }
+
     $("#login-form").validate({
-      submitHandler: function(form) {
-        const entity = Object.fromEntries(new FormData(form).entries());
-        UserService.login(entity);
+      submitHandler: form => {
+        const dto = Object.fromEntries(new FormData(form).entries());
+        UserService.login(dto);
       }
     });
   },
 
-  login: function(entity) {
-    $.ajax({
-      url: Constants.PROJECT_BASE_URL + "auth/login",
-      type: "POST",
-      data: JSON.stringify(entity),
-      contentType: "application/json",
-      dataType: "json",
-      success: function(result) {
-        localStorage.setItem("user_token", result.data.token);
-        window.location.replace("index.html");
+  login(dto) {
+    RestClient.post(
+      "auth/login",
+      dto,
+      res => {
+        localStorage.setItem("user_token", res.data.token);
+        location.replace("#hero");
       },
-      error: function(xhr) {
-        toastr.error(xhr.responseText || "Error");
+      jqXHR => toastr.error(jqXHR.responseText || "Login failed")
+    );
+  },
+
+  /* ---------- REGISTER ---------- */
+  initRegister() {
+    if (Utils.getJwtPayload()) {
+      return location.replace("#hero");
+    }
+
+    $("#register-form").validate({
+      submitHandler: form => {
+        const dto = Object.fromEntries(new FormData(form).entries());
+        UserService.register(dto);
       }
     });
   },
 
-  logout: function() {
-    localStorage.clear();
-    window.location.replace("login.html");
+  register(dto) {
+    RestClient.post(
+      "auth/register",
+      dto,
+      res => {
+        localStorage.setItem("user_token", res.data.token);
+        // regenerate nav in case you're already on a page with it
+        UserService.generateMenuItems();
+        location.replace("#hero");
+      },
+      jqXHR => toastr.error(jqXHR.responseText || "Registration failed")
+    );
   },
 
-  generateMenuItems: function() {
-    const token = localStorage.getItem("user_token");
-    const user  = Utils.parseJwt(token).user;
-    if (!user) {
-      window.location.replace("login.html");
-      return;
+  /* ---------- LOGOUT ---------- */
+  logout() {
+    localStorage.clear();
+    location.replace("#login");
+    // if you want to force a full reload:
+    // location.reload();
+  },
+
+  /* ---------- NAV BAR ---------- */
+  generateMenuItems() {
+    const payload = Utils.getJwtPayload();
+    let navHtml = "";
+
+    if (payload && payload.user) {
+      const u = payload.user;
+      navHtml = `
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#my-account" class="me-3">${u.customer_name}</a></li>
+        <li><a href="#" onclick="UserService.logout()">Logout</a></li>
+      </ul>
+      `;
+    } else {
+      navHtml = `
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#login">Login</a></li>
+      </ul>
+      `;
     }
 
-    let nav = "";
-    if (user.is_admin === 1) {
-      // admin menu
-      nav += `<li><button onclick="UserService.logout()">Logout</button></li>`;
-    } else {
-      // regular user menu
-      nav += `<li><button onclick="UserService.logout()">Logout</button></li>`;
-    }
-    $("#tabs").html(nav);
+    $("#navmenu").html(navHtml);
   }
 };
