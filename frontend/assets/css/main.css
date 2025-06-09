@@ -2577,6 +2577,21 @@ section,
 --------------------------------------------------------------*/
 
 /* Container for the login section */
+
+.login-form .btn-accent {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: 0;
+  padding: 10px 20px;
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+.login-form .btn-accent:hover {
+  /* blend the accent color 25% toward transparent on hover */
+ background: color-mix(in srgb, var(--accent-color), transparent 25%);
+}
+
 .login {
   padding: 60px 0;
   scroll-margin-top: 77px;

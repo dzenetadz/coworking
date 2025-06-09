@@ -16,8 +16,8 @@ class ReservationsService extends BaseService {
      */
     public function createReservation(array $data) {
         $now = new DateTime();
-        $start = new DateTime($data['start_time']);
-        $end   = new DateTime($data['end_time']);
+        $start = new DateTime($data['start_date']);
+        $end   = new DateTime($data['end_date']);
 
         if ($start >= $end) {
             throw new Exception('Reservation end time must be after start time.');
@@ -28,13 +28,15 @@ class ReservationsService extends BaseService {
 
         // check for conflicts
         $conflicts = $this->dao->getByResourceAndRange(
-            $data['resource_id'],
-            $data['start_time'],
-            $data['end_time']
+            $data['plan_id'],
+            $data['start_date'],
+            $data['end_date']
         );
-        if (!empty($conflicts)) {
-            throw new Exception('This time slot is already booked.');
-        }
+       if (!empty($conflicts)) {
+    Flight::json($conflicts, 409);
+    exit;
+}
+
 
         return $this->create($data);
     }

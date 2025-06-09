@@ -11,24 +11,21 @@
     <div class="row justify-content-center">
       <div class="col-lg-6">
         <div class="contact">
-          <form action="forms/register.php" method="post" class="php-email-form">
+          <form id="register-form">
             <div class="row gy-4">
               <div class="col-md-12">
-                <input type="text" name="first_name" class="form-control" placeholder="First Name" required="true">
+                <input type="text" name="customer_name" class="form-control" placeholder="First Name" required="true">
               </div>
               <div class="col-md-12">
-                <input type="text" name="last_name" class="form-control" placeholder="Last Name" required="true">
+                <input type="text" name="customer_surname" class="form-control" placeholder="Last Name" required="true">
               </div>
               <div class="col-md-12">
-                <input type="email" name="email" class="form-control" placeholder="Email" required="true">
+                <input type="email" name="customer_email" class="form-control" placeholder="Email" required="true">
               </div>
               <div class="col-md-12">
-                <input type="password" name="password" class="form-control" placeholder="Password" required="true">
+                <input type="password" name="customer_password" class="form-control" placeholder="Password" required="true">
               </div>
               <div class="col-md-12 text-center">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your registration was successful.</div>
                 <button type="submit">Register</button>
               </div>
             </div>

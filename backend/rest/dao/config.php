@@ -9,27 +9,35 @@ class Config
 {
    public static function DB_NAME()
    {
-       return 'coworking'; 
+    return Config::get_env("DB_NAME", "coworking");
    }
    public static function DB_PORT()
    {
-       return  3306;
+    return Config::get_env("DB_PORT", 3306);
+      
    }
    public static function DB_USER()
    {
-       return 'root';
+       return Config::get_env("DB_USER", 'root');
+
    }
    public static function DB_PASSWORD()
    {
-       return 'root';
+    return Config::get_env("DB_PASSWORD", 'root');
+       
    }
    public static function DB_HOST()
    {
-       return 'localhost';
+    return Config::get_env("DB_HOST", 'localhost');
+       
    }
 
    public static function JWT_SECRET() {
-    return 'your_key_string';
+    return Config::get_env("JWT_SECRET", 'your_key_string');
+    
+   }
+   public static function get_env($name, $default){
+       return isset($_ENV[$name]) && trim($_ENV[$name]) != "" ? $_ENV[$name] : $default;
    }
 }
 

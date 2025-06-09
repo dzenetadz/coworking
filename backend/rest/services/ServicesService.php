@@ -12,12 +12,12 @@ class ServicesService extends BaseService {
      * Business rule: service must have a title and a positive fee
      */
     public function createService(array $data) {
-        if (empty($data['title'])) {
+        if (empty($data['service_title'])) {
             throw new Exception('Service title is required.');
         }
-        if (!isset($data['fee']) || $data['fee'] < 0) {
+        /* if (!isset($data['fee']) || $data['fee'] < 0) {
             throw new Exception('Service fee must be zero or positive.');
-        }
+        } */
         return $this->create($data);
     }
 }
