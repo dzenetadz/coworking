@@ -5,7 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // 1) Composer (FlightPHP, JWT, etc.)
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 require "middleware/AuthMiddleware.php";
 
 use Firebase\JWT\JWT;
