@@ -3,7 +3,18 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
+Flight::route('OPTIONS *', function(){
+    // allow your frontend origin (or use '*' to allow all)
+    header('Access-Control-Allow-Origin: https://coworking-app-frontend-qjmf8.ondigitalocean.app');
+    header('Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS');
+    header('Access-Control-Allow-Headers: Content-Type, Authentication');
+    Flight::halt(200);
+});
+Flight::map('before', function(){
+    header('Access-Control-Allow-Origin: https://coworking-app-frontend-qjmf8.ondigitalocean.app');
+    header('Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS');
+    header('Access-Control-Allow-Headers: Content-Type, Authentication');
+});
 // 1) Composer (FlightPHP, JWT, etc.)
 require __DIR__ . '/vendor/autoload.php';
 require "middleware/AuthMiddleware.php";
