@@ -1,6 +1,6 @@
 const OurServiceService = {
     init() {
-        this.fetchAll();
+        OurServiceService.fetchAll();
     },
 
     /** Fetch all services and render them */
@@ -8,8 +8,8 @@ const OurServiceService = {
         RestClient.get(
             "services",
             servicesArray => {
-                this.renderList(servicesArray);
-                if (this.isAdmin()) this.enableEditing();
+                OurServiceService.renderList(servicesArray);
+                if (OurServiceService.isAdmin()) OurServiceService.enableEditing();
             },
             err => console.error("Failed to fetch services", err)
         );
@@ -48,7 +48,7 @@ const OurServiceService = {
             .off("click")
             .on("click", e => {
                 const id = $(e.currentTarget).closest("[data-id]").data("id");
-                this.showEditForm(id);
+                OurServiceService.showEditForm(id);
             });
 
         // show delete on each
@@ -58,7 +58,7 @@ const OurServiceService = {
             .on("click", e => {
                 const id = $(e.currentTarget).closest("[data-id]").data("id");
                 if (confirm("Are you sure you want to delete this service?")) {
-                    this.deleteService(id);
+                    OurServiceService.deleteService(id);
                 }
             });
 
@@ -70,7 +70,7 @@ const OurServiceService = {
             // prepend the button there only
             gridContainer.prepend(`<button id="add-service-btn" class="btn btn-success mb-4">Add New Service</button>`);
             // delegate the click
-            gridContainer.on("click", "#add-service-btn", () => this.showAddForm());
+            gridContainer.on("click", "#add-service-btn", () => OurServiceService.showAddForm());
         }
     },
 
@@ -88,7 +88,7 @@ const OurServiceService = {
                     .off("click")
                     .on("click", () => {
                         if (confirm("Really delete this service?")) {
-                            this.deleteService(id);
+                            OurServiceService.deleteService(id);
                         }
                     });
                 $("#serviceModal").modal("show");
@@ -120,7 +120,7 @@ const OurServiceService = {
             dto,
             () => {
                 $("#serviceModal").modal("hide");
-                this.fetchAll();
+                OurServiceService.fetchAll();
             },
             err => {
                 console.error("save failed", err);
@@ -136,7 +136,7 @@ const OurServiceService = {
             {}, // no body
             () => {
                 $("#serviceModal").modal("hide");
-                this.fetchAll();
+                OurServiceService.fetchAll();
             },
             err => {
                 console.error("delete failed", err);
